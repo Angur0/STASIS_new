@@ -34,7 +34,7 @@ public class StudentService {
                     student.setLastName(updated.getLastName());
                     student.setEmail(updated.getEmail());
                     student.setDateOfBirth(updated.getDateOfBirth());
-                    // student.setProgram(updated.getProgram());
+                    student.setProgram(updated.getProgram());
                     return studentRepository.save(student);
                 })
                 .orElse(null);
@@ -42,7 +42,7 @@ public class StudentService {
     public Student promoteStudent(Long id) {
         return studentRepository.findById(id)
                 .map(student -> {
-                    student.setGrade_level(student.getGrade_level() + 1); // Move up a grade
+                    student.setYear_level(student.getYear_level() + 1); // Move up a grade
                     return studentRepository.save(student);
                 })
                 .orElse(null);
